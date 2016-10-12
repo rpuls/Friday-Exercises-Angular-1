@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Friday exersice - problem 1</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5//angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5//angular-route.js"></script>
+        <script src="script/main.js" type="text/javascript"></script>
+    </head>
+    <body ng-app="personApp">
+        <div class="container">
+            <h1>Friday exersice - problem 1</h1>
+            <ul class="menu">
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/newperson">add person</a></li>
+            </ul>
+            <div class="row" ng-controller="PersonController as pctrl">
+
+                <div class="col-xs-6">
+                    <h2>Person list</h2>
+                    <table class="table">
+                        <tr><td>Name</td><td>id</td></tr>
+                        <tr ng-repeat="person in pctrl.persons">
+                            <td>{{person.name}}</td><td><a ng-click="pctrl.getPerson(person.id)">{{person.id}}</a></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-xs-6">
+                    <h2>{{pctrl.viewPerson.name}} details</h2>
+                    <table class="table">
+                        <tr><td>id</td><td>Name</td><td>age</td></tr>
+                        <tr><td> {{pctrl.viewPerson.id}}</td><td>{{pctrl.viewPerson.name}}</td><td>{{pctrl.viewPerson.age}}</td></tr>
+                    </table>
+                </div>
+
+                <div class="col-xs-6" ng-view="ng-view">
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
