@@ -32,8 +32,8 @@ app.controller('PersonController', function () {
     };
 
 
-        self.name = "";
-        self.age = "";
+    self.name = "";
+    self.age = "";
     self.addPerson = function () {
         self.id = self.getNextId();
 
